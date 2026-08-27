@@ -1,0 +1,1399 @@
+/* ================================================
+   VISIBLE — SEO·GEO Homepage
+   Design: White-based Blue Tone, Modern Simple
+   ================================================ */
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue-50:  #EEF4FC;
+  --blue-100: #DCE8F7;
+  --blue-200: #BACED0;
+  --blue-500: #3870D4;
+  --blue-600: #2558BD;
+  --blue-700: #1D469E;
+  --slate-50:  #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+  --dark-hero: #0A1628;
+  --white: #FFFFFF;
+
+  --font: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max-w: 1200px;
+  --section-gap: 120px;
+}
+
+/* scroll-behavior는 Lenis(JS)가 대신 처리하므로 네이티브 smooth는 끔 — 둘이 같이 켜지면 스크롤이 끊기거나 충돌할 수 있음 */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+body {
+  font-family: var(--font);
+  color: var(--slate-800);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* ================================================
+   TYPOGRAPHY UTILS
+   ================================================ */
+.section-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--blue-600);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-eyebrow.light { color: #93C5FD; }
+
+.section-title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 800;
+  color: var(--slate-900);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.section-title.left { text-align: left; }
+.section-title.light { color: var(--white); }
+.title-accent { color: var(--blue-600); }
+
+.section-desc {
+  font-size: 17px;
+  color: var(--slate-500);
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-desc.left { text-align: left; }
+.section-desc.light { color: #94A3B8; }
+
+
+/* ================================================
+   01. HERO
+   ================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('images/01%20HERO.jpg') center center / cover no-repeat;
+  background-color: var(--dark-hero);
+}
+
+/* ── Navbar ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  background: transparent;
+  border-bottom: none;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: var(--white);
+}
+
+.navbar.scrolled .logo { color: var(--slate-900); }
+.navbar.scrolled .nav-links a { color: var(--slate-700); }
+.navbar.scrolled .nav-links a:hover { color: var(--slate-900); }
+.navbar.scrolled .btn-nav-outline {
+  border-color: var(--slate-300);
+  color: var(--slate-700);
+}
+.navbar.scrolled .btn-nav-outline:hover { border-color: var(--slate-500); background: var(--slate-50); }
+.navbar.scrolled .btn-nav-fill {
+  background: var(--slate-900);
+  color: var(--white);
+}
+.navbar.scrolled .btn-nav-fill:hover { background: var(--slate-700); }
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.logo svg { width: 32px; height: 32px; margin-top: 3px; }
+.logo--dark { color: var(--slate-900); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-nav-outline {
+  padding: 8px 18px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  transition: all 0.2s;
+}
+.btn-nav-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+.btn-nav-fill {
+  padding: 8px 18px;
+  background: var(--white);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-900);
+  transition: all 0.2s;
+}
+.btn-nav-fill:hover { background: rgba(255,255,255,0.9); }
+
+/* ── Hero Body ── */
+.hero-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+.hero-desc {
+  font-size: 17px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+  margin-bottom: 44px;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 16px 36px;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  transition: all 0.25s;
+  letter-spacing: 0.01em;
+}
+.btn-hero:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
+}
+
+
+/* ================================================
+   02. 검색 방식이 바뀌고 있습니다
+   ================================================ */
+.search-shift-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+  text-align: center;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.search-shift-section .section-eyebrow {
+  color: var(--slate-500);
+  letter-spacing: 0.05em;
+}
+
+.shift-grid {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  align-items: start;
+  gap: 24px;
+  margin-top: 80px;
+}
+
+.shift-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ================================================
+   02-2. AI DISCOVERY ECOSYSTEM
+   ================================================ */
+.ecosystem-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.ecosystem-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.ecosystem-text { text-align: left; }
+
+.ecosystem-section .section-title {
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
+
+.ecosystem-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
+
+
+
+/* ================================================
+   04. SEO만으로 충분하지 않은 시대
+   ================================================ */
+.era-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+}
+
+.era-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.era-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
+.era-text {
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  padding-right: 12px;
+}
+
+.era-text .section-title,
+.era-text .section-desc {
+  word-break: keep-all;
+}
+
+.era-text .section-title {
+  line-height: 1.4;
+}
+
+.era-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.tag-old {
+  padding: 8px 16px;
+  border: 1px solid var(--slate-200);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate-500);
+}
+
+.tag-arrow {
+  font-size: 18px;
+  color: var(--slate-400);
+}
+
+.tag-new {
+  padding: 8px 16px;
+  background: var(--blue-600);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ================================================
+   05. 중간 CTA (다크)
+   ================================================ */
+.mid-cta-section {
+  padding: 120px 0;
+  background: #0D1E31;
+  text-align: center;
+}
+
+.mid-cta-section--alt {
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+}
+
+.mid-cta-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #60A5FA;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.mid-cta-title {
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.mid-cta-desc {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--slate-400);
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+.btn-cta-primary {
+  display: inline-block;
+  padding: 18px 40px;
+  background: var(--blue-600);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  transition: all 0.25s;
+  letter-spacing: 0.01em;
+}
+.btn-cta-primary:hover {
+  background: var(--blue-700);
+  box-shadow: 0 4px 14px rgba(15,23,42,0.2);
+}
+
+.diagnosis-form-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 33px 32px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.diagnosis-form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.diagnosis-input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 51px;
+  padding: 0 22px;
+  background: var(--white);
+  border: 2px solid #3B82F6;
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.06);
+}
+
+.diagnosis-input-icon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.diagnosis-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--slate-900);
+}
+.diagnosis-input::placeholder {
+  color: #757575;
+  font-weight: 600;
+}
+
+.btn-cta-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 51px;
+  padding: 0 30px;
+  white-space: nowrap;
+  background: linear-gradient(104.03deg, #2563EB 0%, #1D4ED8 100%);
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  transition: all 0.25s;
+}
+.btn-cta-submit:hover {
+  background: linear-gradient(104.03deg, #1D4ED8 0%, #1E3A8A 100%);
+  box-shadow: 0 4px 14px rgba(15,23,42,0.2);
+}
+
+.diagnosis-checklist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+}
+.diagnosis-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate-300);
+}
+.diagnosis-checklist li::before {
+  content: '✓';
+  color: #60A5FA;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+
+/* ================================================
+   06. 핵심 서비스
+   ================================================ */
+.services-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1px solid var(--slate-200);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--slate-500);
+  margin-bottom: 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.25s;
+  position: relative;
+  cursor: pointer;
+}
+.service-card:hover {
+  border-color: var(--blue-500);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.04);
+}
+
+.service-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.service-card:hover .service-card-img {
+  transform: scale(1.04);
+}
+
+.service-card-body {
+  padding: 28px 28px 36px;
+}
+
+.service-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--blue-500);
+  margin-bottom: 16px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 12px;
+}
+
+.service-card-body > p {
+  font-size: 13px;
+  color: var(--slate-500);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.service-list { display: flex; flex-direction: column; gap: 8px; }
+.service-list li {
+  font-size: 13px;
+  color: var(--slate-600);
+  padding-left: 16px;
+  position: relative;
+}
+.service-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--blue-300);
+  font-size: 11px;
+}
+
+
+/* ================================================
+   07. 왜 성과가 안 나오나요?
+   ================================================ */
+.why-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+}
+
+.why-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.why-section .section-title {
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
+.why-section .section-desc {
+  word-break: keep-all;
+}
+
+.why-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--slate-200);
+  cursor: pointer;
+  transition: border-color 0.25s ease;
+}
+.why-item:last-child { border-bottom: 1px solid var(--slate-200); }
+.why-item:hover { border-color: var(--blue-600); }
+
+.why-num-badge {
+  width: 56px;
+  flex-shrink: 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--slate-300);
+  transition: color 0.25s ease;
+}
+.why-item:hover .why-num-badge { color: var(--blue-600); }
+
+.why-item h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 6px;
+}
+
+.why-item p {
+  font-size: 14px;
+  color: var(--slate-500);
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+}
+
+
+
+
+/* ================================================
+   09. 우리는 어떻게 다를까요?
+   ================================================ */
+.diff-section {
+  padding: var(--section-gap) 0;
+  background: var(--slate-50);
+  text-align: center;
+}
+.compare-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 64px 0 48px;
+}
+
+.compare-text-circle {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compare-text-circle--negative { margin-right: -28px; }
+.compare-text-circle--positive { margin-left: -28px; }
+.compare-text-circle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--slate-200);
+  border-radius: 50%;
+}
+.compare-text-circle--negative::before { border-color: #CDD6E1; }
+.compare-text-circle--positive::before { border-color: var(--blue-600); }
+
+.compare-points {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 32px;
+  text-align: center;
+}
+.compare-points--negative li {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--slate-500);
+  line-height: 1.4;
+}
+.compare-points--positive li {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--blue-600);
+  line-height: 1.4;
+}
+
+.compare-vs-group {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.compare-core {
+  position: relative;
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  color: var(--white);
+}
+.compare-core--visible {
+  background: rgba(37, 88, 189, 0.85);
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  z-index: 1;
+}
+.compare-core--general {
+  background: rgba(167, 182, 204, 0.85);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.22;
+}
+.compare-vs-group > .compare-core:first-child { margin-right: -32px; }
+.compare-vs-group > .compare-core:last-child { margin-left: -32px; }
+
+.compare-vs {
+  position: relative;
+  z-index: 2;
+  font-size: 35px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.compare-summary {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 19px;
+  color: var(--slate-900);
+  line-height: 1.8;
+}
+.compare-summary .text-blue {
+  color: var(--blue-600);
+}
+
+
+/* ================================================
+   10. AI 구조 (다크)
+   ================================================ */
+.ai-structure-section {
+  padding: var(--section-gap) 0;
+  background: linear-gradient(135deg, #0D1E31 0%, #122036 100%);
+  text-align: center;
+}
+
+.iso-diagram {
+  width: 100%;
+  max-width: 1300px;
+  margin: 64px auto 56px;
+}
+
+.iso-diagram-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.ai-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--slate-200);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pillar {
+  padding: 32px 28px;
+  background: var(--white);
+  text-align: left;
+  transition: background 0.2s;
+}
+.pillar:hover { background: var(--slate-50); }
+
+.pillar h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 10px;
+}
+
+.pillar p {
+  font-size: 13px;
+  color: var(--slate-500);
+  line-height: 1.6;
+}
+
+
+/* ================================================
+   12. 패키지 서비스
+   ================================================ */
+.packages-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.package-card {
+  background: var(--white);
+  border: 1.6px solid var(--slate-200);
+  border-radius: 20px;
+  padding: 40px 36px;
+  text-align: left;
+  position: relative;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.package-card:hover {
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+  transform: translateY(-4px);
+}
+
+.package-card--popular {
+  border-color: var(--blue-600);
+}
+
+.package-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--blue-600);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.package-tier {
+  font-family: 'Outfit', var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--blue-600);
+  margin-bottom: 12px;
+}
+
+.package-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin-bottom: 6px;
+}
+
+.package-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate-500);
+  margin-bottom: 20px;
+}
+
+.package-desc {
+  font-size: 14px;
+  color: var(--slate-500);
+  line-height: 1.7;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.package-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.package-features li {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--slate-700);
+  padding-left: 22px;
+  position: relative;
+}
+.package-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--blue-600);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.btn-package-outline {
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate-700);
+  transition: all 0.2s;
+}
+.btn-package-outline:hover { border-color: var(--blue-600); color: var(--blue-600); }
+
+.btn-package-fill {
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  background: var(--blue-600);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  transition: all 0.2s;
+}
+.btn-package-fill:hover { background: var(--blue-700); }
+
+
+/* ================================================
+   13. 사이즈 기업별
+   ================================================ */
+.size-section {
+  padding: var(--section-gap) 0;
+  background: var(--slate-50);
+}
+
+.ps-eyebrow {
+  font-family: 'Outfit', var(--font);
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--blue-600);
+  margin-bottom: 16px;
+}
+
+.size-section .section-desc {
+  white-space: nowrap;
+  margin: 0 0 48px;
+}
+
+.ps-columns {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  margin-bottom: 20px;
+}
+.ps-col-label {
+  font-size: 20px;
+  font-weight: 800;
+}
+.ps-col-label--pain { grid-column: 1; color: var(--slate-400); }
+.ps-col-label--solution { grid-column: 3; color: var(--blue-600); }
+
+.ps-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ps-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: stretch;
+}
+
+.ps-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 16px;
+}
+.ps-card--pain {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+}
+.ps-card--solution {
+  background: var(--blue-50);
+  align-items: center;
+}
+
+.ps-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slate-400);
+}
+
+.ps-card p {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--slate-700);
+}
+.ps-card--solution p { color: var(--slate-900); }
+.ps-highlight { color: var(--blue-600); font-weight: 800; }
+
+.ps-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-500);
+}
+
+
+/* ================================================
+   14. 인사이트
+   ================================================ */
+.insights-section {
+  padding: var(--section-gap) 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.insight-card {
+  border: 1px solid var(--slate-200);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s;
+  text-align: left;
+}
+.insight-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+
+.insight-img {
+  width: 100%;
+  height: 200px;
+  background: var(--slate-100) center / cover no-repeat;
+}
+
+.insight-body {
+  padding: 28px;
+}
+
+.insight-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--blue-600);
+  background: var(--blue-50);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+
+.insight-card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.insight-card p {
+  font-size: 14px;
+  color: var(--slate-500);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.insight-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-600);
+  transition: gap 0.2s;
+  display: inline-flex;
+  gap: 4px;
+}
+.insight-link:hover { gap: 8px; }
+
+
+/* ================================================
+   15. FAQ
+   ================================================ */
+.faq-section {
+  padding: var(--section-gap) 0;
+  background: var(--slate-50);
+  text-align: center;
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 56px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq-item.open { border-color: var(--blue-200); }
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-q span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--slate-900);
+  line-height: 1.4;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--slate-400);
+  transition: transform 0.25s, color 0.25s;
+}
+.faq-item.open .faq-icon { transform: rotate(180deg); color: var(--blue-600); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 28px;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 28px 24px;
+}
+
+.faq-a p {
+  font-size: 14px;
+  color: var(--slate-500);
+  line-height: 1.8;
+}
+
+
+/* ================================================
+   16. 최종 CTA
+   ================================================ */
+.final-cta-section {
+  padding: 140px 0;
+  background: var(--slate-900);
+  text-align: center;
+}
+
+.final-cta-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.final-cta-desc {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  margin-bottom: 52px;
+}
+
+.final-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-cta-ghost {
+  display: inline-block;
+  padding: 18px 40px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  transition: all 0.25s;
+}
+.btn-cta-ghost:hover {
+  border-color: rgba(255,255,255,0.6);
+  color: var(--white);
+}
+
+
+/* ================================================
+   FOOTER
+   ================================================ */
+.footer {
+  padding: 80px 0 40px;
+  background: var(--slate-100);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--slate-200);
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: var(--slate-500);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer-col h5 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  font-size: 14px;
+  color: var(--slate-500);
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--blue-600); }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-bottom p { font-size: 13px; color: var(--slate-400); }
+
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a {
+  font-size: 13px;
+  color: var(--slate-400);
+  transition: color 0.2s;
+}
+.footer-legal a:hover { color: var(--slate-700); }
+
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 1024px) {
+  :root { --section-gap: 80px; }
+
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .ecosystem-layout,
+  .era-inner,
+  .why-inner { grid-template-columns: 1fr; gap: 48px; }
+
+  .ai-pillars { grid-template-columns: repeat(2, 1fr); }
+
+  .packages-grid,
+  .insights-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .footer-top { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+
+  .nav-links { display: none; }
+  .navbar { padding: 0 24px; }
+
+  .shift-grid { grid-template-columns: 1fr; }
+  .services-grid,
+  .packages-grid,
+  .insights-grid { grid-template-columns: 1fr; }
+
+  .ai-pillars { grid-template-columns: repeat(2, 1fr); }
+
+  .compare-diagram { flex-direction: column; gap: 24px; }
+  .compare-text-circle { width: auto; height: auto; margin: 0 !important; padding: 24px 0; }
+  .compare-text-circle::before { display: none; }
+  .compare-vs-group { justify-content: center; }
+
+  .ps-columns { display: none; }
+  .ps-row { grid-template-columns: 1fr; gap: 12px; }
+  .ps-arrow { transform: rotate(90deg); padding: 0; }
+
+  .footer-links { grid-template-columns: repeat(2, 1fr); }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+  .final-cta-actions { flex-direction: column; }
+
+  .diagnosis-form-card { padding: 28px 20px 24px; }
+  .diagnosis-form-row { flex-direction: column; }
+  .btn-cta-submit { width: 100%; }
+}
