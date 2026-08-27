@@ -718,7 +718,8 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .diag-card .eyebrow { justify-content: center; }
 .diag-card .h2 { text-align: center; }
 .diag-card .lead { max-width: 100%; text-align: center; margin: 0 auto 32px; }
-.diag-form { display: flex; gap: 10px; margin-bottom: 28px; }
+.diag-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.diag-form-row { display: flex; gap: 10px; }
 .diag-input {
   flex: 1;
   height: 54px;
@@ -730,6 +731,10 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   color: var(--slate-900);
 }
 .diag-input:focus { outline: none; border-color: var(--lime-400); }
+.diag-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.diag-msg { min-height: 20px; font-size: 14px; font-weight: 600; margin: 0; }
+.diag-msg.is-success { color: #2f9e44; }
+.diag-msg.is-error { color: #e03131; }
 .diag-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .diag-tag {
   padding: 7px 14px;
@@ -982,12 +987,18 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(9,14,26,0.3) 0%, rgba(9,14,26,0.8) 100%);
+    background: linear-gradient(180deg, rgba(9,14,26,0.55) 0%, rgba(9,14,26,0.88) 100%);
   }
   .hero .container { position: relative; z-index: 1; }
   .hero-body .eyebrow { font-size: 12px; letter-spacing: 0.08em; }
   .hero-title { font-size: 32px; }
-  .hero-desc { font-size: 15px; margin-bottom: 28px; }
+  .hero-desc {
+    font-size: 15.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    margin-bottom: 28px;
+  }
   .hero-desc br { display: none; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
   .shift-compare { grid-template-columns: 1fr; }
@@ -1021,7 +1032,7 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   .geo-diagram { display: none; }
   .geo-diagram-mobile { display: flex; }
   .diag-card { padding: 36px 24px; }
-  .diag-form { flex-direction: column; }
+  .diag-form-row { flex-direction: column; }
   .diag-input { flex: none; height: 42px; }
   #framework .h2 { line-height: 1.15; }
   .fw-note { display: none; }

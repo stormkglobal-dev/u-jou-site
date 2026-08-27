@@ -51,3 +51,43 @@ if (navHamburger && mobileMenu) {
     link.addEventListener('click', closeMobileMenu);
   });
 }
+
+// 무료 진단 폼 — Formspree로 리드(URL+이메일) 전송
+const diagForm = document.getElementById('diagForm');
+
+if (diagForm) {
+  const diagMsg = document.getElementById('diagMsg');
+  const diagSubmit = diagForm.querySelector('.diag-submit');
+  const diagSubmitLabel = diagSubmit.textContent;
+
+  diagForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    diagSubmit.disabled = true;
+    diagSubmit.textContent = '전송 중...';
+    diagMsg.textContent = '';
+    diagMsg.className = 'diag-msg';
+
+    try {
+      const response = await fetch(diagForm.action, {
+        method: 'POST',
+        body: new FormData(diagForm),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        diagMsg.textContent = '접수되었습니다. 담당자가 확인 후 이메일로 결과를 보내드릴게요.';
+        diagMsg.classList.add('is-success');
+        diagForm.reset();
+      } else {
+        throw new Error('submit failed');
+      }
+    } catch (err) {
+      diagMsg.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해주세요.';
+      diagMsg.classList.add('is-error');
+    } finally {
+      diagSubmit.disabled = false;
+      diagSubmit.textContent = diagSubmitLabel;
+    }
+  });
+}
