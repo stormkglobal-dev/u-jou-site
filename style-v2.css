@@ -731,6 +731,18 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
   color: var(--slate-900);
 }
 .diag-input:focus { outline: none; border-color: var(--lime-400); }
+.diag-textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1.5px solid var(--slate-300);
+  font-size: 17px;
+  font-family: var(--font);
+  color: var(--slate-900);
+  resize: vertical;
+}
+.diag-textarea:focus { outline: none; border-color: var(--lime-400); }
 .diag-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .diag-msg { min-height: 20px; font-size: 14px; font-weight: 600; margin: 0; }
 .diag-msg.is-success { color: #2f9e44; }

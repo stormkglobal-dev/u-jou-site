@@ -91,3 +91,43 @@ if (diagForm) {
     }
   });
 }
+
+// 상담 문의 폼 — Formspree로 문의 내용 전송
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  const contactMsg = document.getElementById('contactMsg');
+  const contactSubmit = contactForm.querySelector('.contact-submit');
+  const contactSubmitLabel = contactSubmit.textContent;
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    contactSubmit.disabled = true;
+    contactSubmit.textContent = '전송 중...';
+    contactMsg.textContent = '';
+    contactMsg.className = 'diag-msg';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        contactMsg.textContent = '문의가 접수되었습니다. 담당자가 빠르게 연락드릴게요.';
+        contactMsg.classList.add('is-success');
+        contactForm.reset();
+      } else {
+        throw new Error('submit failed');
+      }
+    } catch (err) {
+      contactMsg.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해주세요.';
+      contactMsg.classList.add('is-error');
+    } finally {
+      contactSubmit.disabled = false;
+      contactSubmit.textContent = contactSubmitLabel;
+    }
+  });
+}
