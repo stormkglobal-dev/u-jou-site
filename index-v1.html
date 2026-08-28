@@ -40,14 +40,35 @@
           <a href="contact-v1.html" class="btn-nav-outline">상담 문의</a>
           <a href="#diagnosis" class="btn-nav-fill">무료 진단</a>
         </div>
+        <button class="nav-hamburger" id="navHamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+          <li><a href="#services">서비스</a></li>
+          <li><a href="#process">프로세스</a></li>
+          <li><a href="#diagnosis">무료진단</a></li>
+          <li><a href="#">인사이트</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="mobile-menu-actions">
+          <a href="contact-v1.html" class="btn-nav-outline">상담 문의</a>
+          <a href="#diagnosis" class="btn-nav-fill">무료 진단</a>
+        </div>
       </div>
     </nav>
 
     <div class="hero-body">
       <h1 class="hero-title">검색되는 브랜드에서,<br>AI가 발견하는 브랜드로.</h1>
-      <p class="hero-desc">
+      <p class="hero-desc hero-desc--desktop">
         Google · Naver · ChatGPT · Gemini 등 검색과 생성형 AI 환경에서<br>
         브랜드가 발견될 수 있도록 SEO·GEO 구조를 설계합니다.
+      </p>
+      <p class="hero-desc hero-desc--mobile">
+        Google · Naver · ChatGPT · Gemini 등<br>
+        검색과 생성형 AI 환경에서 브랜드가 발견될 수<br>
+        있도록 SEO·GEO 구조를 설계합니다.
       </p>
       <a href="#services" class="btn-hero">서비스 알아보기</a>
     </div>
@@ -60,11 +81,64 @@
   <section class="search-shift-section">
     <div class="container">
       <p class="section-eyebrow">WHY GEO NOW</p>
-      <h2 class="section-title">고객은 이미 '검색'이 아닌 <span class="title-accent">'AI의 추천'</span>을 듣고 있습니다</h2>
+      <h2 class="section-title">고객은 이미 '검색'이 아닌<br class="shift-title-break"> <span class="title-accent">'AI의 추천'</span>을 듣고 있습니다</h2>
 
-      <div class="shift-grid">
+      <div class="shift-grid shift-grid--desktop">
         <img class="shift-card-img" src="images/Left_%20Traditional%20Search.png" alt="기존 키워드 검색: '강남 피부과' 검색 시 파란색 링크 결과가 나열되고 단순 사이트 방문 유도에 머무는 구조">
         <img class="shift-card-img shift-card-img--ai" src="images/Right_%20AI%20Search%20(Highlight%20Offset).png" alt="AI 생성형 검색: '강남에서 피부과 추천해줘' 질문에 AI가 신뢰도 높은 브랜드를 직접 선별해 답변 안에서 추천·언급하는 구조">
+      </div>
+
+      <div class="shift-grid shift-grid--mobile">
+        <div class="shift-card2 shift-card2--old">
+          <span class="shift-card2-badge">기존 검색</span>
+          <div class="shift-card2-query">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>"강남 피부과"</span>
+          </div>
+          <ul class="shift-result-list">
+            <li>
+              <span class="shift-result-thumb"></span>
+              <span class="shift-result-lines"><span></span><span></span></span>
+              <svg class="shift-result-dots" width="4" height="16" viewBox="0 0 4 16" fill="currentColor"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="8" r="2"/><circle cx="2" cy="14" r="2"/></svg>
+            </li>
+            <li>
+              <span class="shift-result-thumb"></span>
+              <span class="shift-result-lines"><span></span><span></span></span>
+              <svg class="shift-result-dots" width="4" height="16" viewBox="0 0 4 16" fill="currentColor"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="8" r="2"/><circle cx="2" cy="14" r="2"/></svg>
+            </li>
+          </ul>
+          <p class="shift-card2-footer">여러 검색 결과 중 하나로 노출</p>
+        </div>
+
+        <div class="shift-arrow2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
+        </div>
+
+        <div class="shift-card2 shift-card2--ai">
+          <span class="shift-card2-badge shift-card2-badge--ai">AI 검색</span>
+          <div class="shift-card2-query">
+            <span>"강남에서 피부과 추천해줘"</span>
+          </div>
+          <div class="shift-recommend-box">
+            <div class="shift-recommend-top">
+              <span class="shift-recommend-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>
+              </span>
+              <div>
+                <p class="shift-recommend-label">추천 브랜드</p>
+                <p class="shift-recommend-name">비저블 피부과
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--blue-600)"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.3l2.4 2.4 4.6-5.4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </p>
+              </div>
+            </div>
+            <div class="shift-recommend-tags">
+              <span>강남역 도보 3분</span>
+              <span>피부과 전문의 진료</span>
+              <span>누적 후기 1,000+</span>
+            </div>
+          </div>
+          <p class="shift-card2-footer shift-card2-footer--ai">AI가 직접 브랜드를 추천</p>
+        </div>
       </div>
     </div>
   </section>
@@ -77,8 +151,9 @@
     <div class="container">
       <div class="ecosystem-layout">
         <div class="ecosystem-text">
-          <h2 class="section-title left">이제 브랜드는 검색 결과뿐만 아니라<br><span class="title-accent">AI 답변</span> 안에서도 발견되어야 합니다.</h2>
-          <p class="section-desc left">검색 순위만 관리하는 것이 아니라 ChatGPT, Google,<br>Perplexity, Gemini, Copilot 같은 플랫폼의 답변 흐름 속에서<br>브랜드가 자연스럽게 노출되도록 구조를 설계합니다.</p>
+          <h2 class="section-title left section-title--desktop">이제 브랜드는 검색 결과뿐만 아니라<br><span class="title-accent">AI 답변</span> 안에서도 발견되어야 합니다.</h2>
+          <h2 class="section-title left section-title--mobile">이제 브랜드는 검색 결과뿐만<br>아니라 <span class="title-accent">AI 답변</span> 안에서도<br>발견되어야 합니다.</h2>
+          <p class="section-desc left">검색 순위만 관리하는 것이 아니라 ChatGPT, Google,<br> Perplexity, Gemini, Copilot 같은 플랫폼의 답변 흐름 속에서<br> 브랜드가 자연스럽게 노출되도록 구조를 설계합니다.</p>
         </div>
 
         <img class="ecosystem-diagram-img" src="images/ai-ecosystem-img.png" alt="YOUR BRAND를 중심으로 ChatGPT, Google AI Mode, Perplexity, Gemini, Microsoft Copilot이 연결된 AI 디스커버리 생태계 다이어그램">
@@ -119,7 +194,7 @@
   ============================= -->
   <section class="mid-cta-section" id="diagnosis">
     <div class="container">
-      <h2 class="mid-cta-title">AI 검색, 내 브랜드의 노출 순위는?<br>지금 무료로 진단해 보세요</h2>
+      <h2 class="mid-cta-title">AI 검색, 내 브랜드의<br class="shift-title-break"> 노출 순위는?<br>지금 무료로 진단해 보세요</h2>
       <p class="mid-cta-desc">AI 생성형 답변과 검색엔진 내 브랜드 노출 현황을 무료로 정밀 진단해 드립니다.</p>
 
       <div class="diagnosis-form-card">
@@ -159,7 +234,7 @@
     <div class="container">
       <span class="section-badge">✦ SERVICES</span>
       <h2 class="section-title">핵심 서비스</h2>
-      <p class="section-desc">검색과 AI 환경에서 브랜드가 발견되도록 설계하는<br>4가지 핵심 서비스를 제공합니다.</p>
+      <p class="section-desc">검색과 AI 환경에서 브랜드가 발견되도록 설계하는<br> 4가지 핵심 서비스를 제공합니다.</p>
       <div class="services-grid">
         <div class="service-card">
           <img class="service-card-img" src="images/01-SEO-Audit.png" alt="SEO Audit 대시보드: 웹사이트 건강 점수 82점, Issues 12건, Recommendations 28건, Passed Checks 145건">
@@ -230,13 +305,13 @@
       <div class="why-inner">
         <div class="why-text">
           <h2 class="section-title left">왜 노력이<br>성과가 안 나오나요?</h2>
-          <p class="section-desc left">전략 없는 실행은 결과를 만들지 못합니다.<br>대부분의 브랜드는 방향 없이 콘텐츠를 쌓아왔습니다.</p>
+          <p class="section-desc left">전략 없는 실행은 결과를 만들지 못합니다.<br> 대부분의 브랜드는 방향 없이 콘텐츠를 쌓아왔습니다.</p>
         </div>
         <div class="why-list">
           <div class="why-item">
             <div class="why-num-badge">01</div>
             <div>
-              <h4>SEO를 모르는 에이전시가 운영했습니다</h4>
+              <h4>SEO를 모르는 에이전시가<br class="shift-title-break"> 운영했습니다</h4>
               <p>디자인·SNS 중심 대행사가 검색까지 담당하면서 구조적 SEO 최적화가 누락됐습니다.</p>
             </div>
           </div>
@@ -273,9 +348,9 @@
   <section class="diff-section" id="framework">
     <div class="container">
       <p class="section-eyebrow">OUR DIFFERENCE</p>
-      <h2 class="section-title">단순 순위 노출을 넘어, AI 답변 구조를 선점합니다</h2>
+      <h2 class="section-title">단순 순위 노출을 넘어,<br class="shift-title-break"> AI 답변 구조를 선점합니다</h2>
 
-      <div class="compare-diagram">
+      <div class="compare-diagram compare-diagram--desktop">
         <div class="compare-text-circle compare-text-circle--negative">
           <ul class="compare-points compare-points--negative">
             <li>단순 키워드 순위 중심의 단편적 접근</li>
@@ -299,7 +374,35 @@
         </div>
       </div>
 
-      <p class="compare-summary">검색엔진 순위만 쫓는 것이 아니라, <strong>AI가 브랜드를 이해하고 인용하도록 구조를 설계합니다.</strong><br><strong class="text-blue">VISIBLE</strong>은 GEO·AEO 전문성을 바탕으로 처음부터 다른 접근을 제공합니다.</p>
+      <p class="compare-summary compare-summary--desktop">검색엔진 순위만 쫓는 것이 아니라, <strong>AI가 브랜드를 이해하고 인용하도록 구조를 설계합니다.</strong><br><strong class="text-blue">VISIBLE</strong>은 GEO·AEO 전문성을 바탕으로 처음부터 다른 접근을 제공합니다.</p>
+
+      <div class="compare-mobile">
+        <div class="compare-vs-group">
+          <div class="compare-core compare-core--general">일반<br>에이전시</div>
+          <span class="compare-vs">VS</span>
+          <div class="compare-core compare-core--visible">VISIBLE</div>
+        </div>
+
+        <div class="compare-card compare-card--negative">
+          <span class="compare-card-label">일반 에이전시</span>
+          <ul class="compare-card-list">
+            <li>키워드 순위 중심</li>
+            <li>AI 대응 체계 부족</li>
+            <li>발행량 중심 운영</li>
+          </ul>
+        </div>
+
+        <div class="compare-card compare-card--positive">
+          <span class="compare-card-label compare-card-label--visible">VISIBLE</span>
+          <ul class="compare-card-list">
+            <li>AI 이해형 콘텐츠 구조 설계</li>
+            <li>GEO·AEO 최적화 전략</li>
+            <li>유입·전환 통합 리포트</li>
+          </ul>
+        </div>
+
+        <p class="compare-summary">검색엔진 순위를 넘어,<br><strong>AI가 브랜드를 이해하고 추천하도록<br>구조를 설계</strong>합니다.</p>
+      </div>
     </div>
   </section>
 
@@ -310,9 +413,10 @@
   <section class="ai-structure-section" id="process">
     <div class="container">
       <h2 class="section-title light">AI가 브랜드를 안내하는 구조</h2>
-      <p class="section-desc light">VISIBLE의 SEO·GEO 프레임워크는 검색엔진과 AI가<br>브랜드를 신뢰하고 추천하도록 설계된 구조입니다.</p>
+      <p class="section-desc light">VISIBLE의 SEO·GEO 프레임워크는 검색엔진과 AI가<br> 브랜드를 신뢰하고 추천하도록 설계된 구조입니다.</p>
       <div class="iso-diagram">
-        <img src="images/visible-ai-response.jpg" alt="사용자 검색부터 VISIBLE의 SEO·GEO 구조 설계를 거쳐 AI 응답에 브랜드가 인용되는 과정을 보여주는 다이어그램" class="iso-diagram-img" />
+        <img src="images/visible-ai-response.jpg" alt="사용자 검색부터 VISIBLE의 SEO·GEO 구조 설계를 거쳐 AI 응답에 브랜드가 인용되는 과정을 보여주는 다이어그램" class="iso-diagram-img iso-diagram-img--desktop" />
+        <img src="images/iso-diagram-mo.jpg" alt="사용자 검색부터 VISIBLE의 SEO·GEO 구조 설계를 거쳐 AI 응답에 브랜드가 인용되는 과정을 보여주는 다이어그램" class="iso-diagram-img iso-diagram-img--mobile" />
       </div>
       <div class="ai-pillars">
         <div class="pillar">
@@ -341,8 +445,8 @@
   ============================= -->
   <section class="packages-section" id="output">
     <div class="container">
-      <h2 class="section-title">성장 단계별 GEO · SEO 서비스 패키지</h2>
-      <p class="section-desc">브랜드 규모와 목적에 맞는 최적의 패키지를 선택하세요.</p>
+      <h2 class="section-title">성장 단계별 GEO · SEO<br class="shift-title-break"> 서비스 패키지</h2>
+      <p class="section-desc">브랜드 규모와 목적에 맞는<br class="shift-title-break"> 최적의 패키지를 선택하세요.</p>
       <div class="packages-grid">
         <div class="package-card">
           <div class="package-tier">STARTER</div>
@@ -456,7 +560,7 @@
   <section class="insights-section">
     <div class="container">
       <p class="section-eyebrow">INSIGHTS</p>
-      <h2 class="section-title">AI 검색 시대를 리드하는 전문 인사이트</h2>
+      <h2 class="section-title">AI 검색 시대를 리드하는<br class="shift-title-break"> 전문 인사이트</h2>
       <div class="insights-grid">
         <article class="insight-card">
           <div class="insight-img" style="background-image: url('images/insight-img-geo.jpg')"></div>
@@ -554,7 +658,7 @@
   <section class="final-cta-section" id="contact">
     <div class="container">
       <h2 class="final-cta-title">AI가 브랜드를 발견하기 전에,<br>우리가 먼저 설계합니다.</h2>
-      <p class="final-cta-desc">지금 무료 진단을 신청하면 브랜드의 검색·AI 노출 현황을<br>상세하게 분석해 드립니다.</p>
+      <p class="final-cta-desc">지금 무료 진단을 신청하면 브랜드의 검색·AI 노출 현황을<br> 상세하게 분석해 드립니다.</p>
       <div class="final-cta-actions">
         <a href="#diagnosis" class="btn-cta-primary">무료 진단 신청하기 →</a>
         <a href="tel:0000000000" class="btn-cta-ghost">전화 상담</a>
@@ -666,6 +770,25 @@
         lenis.scrollTo(target, { offset: -84 });
       });
     });
+
+    // 모바일 헤더(햄버거) 토글
+    const navHamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (navHamburger && mobileMenu) {
+      const closeMobileMenu = () => {
+        mobileMenu.classList.remove('open');
+        navHamburger.setAttribute('aria-expanded', 'false');
+        navbar.classList.remove('menu-open');
+      };
+      navHamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        navHamburger.setAttribute('aria-expanded', String(isOpen));
+        navbar.classList.toggle('menu-open', isOpen);
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
 
     // 무료 진단 폼 — Formspree로 리드(URL+이메일) 전송
     const diagnosisForm = document.getElementById('diagnosisForm');

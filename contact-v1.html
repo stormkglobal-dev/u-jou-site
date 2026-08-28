@@ -33,6 +33,22 @@
         <a href="contact-v1.html" class="btn-nav-outline">상담 문의</a>
         <a href="index-v1.html#diagnosis" class="btn-nav-fill">무료 진단</a>
       </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-menu-links">
+        <li><a href="index-v1.html#services">서비스</a></li>
+        <li><a href="index-v1.html#process">프로세스</a></li>
+        <li><a href="index-v1.html#diagnosis">무료진단</a></li>
+        <li><a href="index-v1.html">인사이트</a></li>
+        <li><a href="index-v1.html#faq">FAQ</a></li>
+      </ul>
+      <div class="mobile-menu-actions">
+        <a href="contact-v1.html" class="btn-nav-outline">상담 문의</a>
+        <a href="index-v1.html#diagnosis" class="btn-nav-fill">무료 진단</a>
+      </div>
     </div>
   </nav>
 
@@ -138,6 +154,23 @@
         lenis.scrollTo(target, { offset: -84 });
       });
     });
+
+    // 모바일 헤더(햄버거) 토글
+    const navHamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (navHamburger && mobileMenu) {
+      const closeMobileMenu = () => {
+        mobileMenu.classList.remove('open');
+        navHamburger.setAttribute('aria-expanded', 'false');
+      };
+      navHamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        navHamburger.setAttribute('aria-expanded', String(isOpen));
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
 
     // 상담 문의 폼 — Formspree로 문의 내용 전송
     const contactForm = document.getElementById('contactForm');
