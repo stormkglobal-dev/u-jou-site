@@ -1633,6 +1633,8 @@ img { max-width: 100%; display: block; }
   margin-bottom: 20px;
 }
 
+.final-cta-title--mobile { display: none; }
+
 .final-cta-desc {
   font-size: 19px;
   color: rgba(255,255,255,0.55);
@@ -1791,7 +1793,10 @@ img { max-width: 100%; display: block; }
 
   .faq-list { margin-top: 32px; gap: 10px; }
   .faq-q { padding: 16px 18px; gap: 12px; }
-  .faq-q span { font-size: 15px; }
+  .faq-q span { font-size: 14px; }
+  .final-cta-title { font-size: 26px; }
+  .final-cta-title--desktop { display: none; }
+  .final-cta-title--mobile { display: block; }
   .faq-icon { width: 16px; height: 16px; }
   .faq-a { padding: 0 18px; }
   .faq-item.open .faq-a { padding: 0 18px 16px; }
@@ -1801,7 +1806,7 @@ img { max-width: 100%; display: block; }
   .mid-cta-title { line-height: 1.4; }
 
   .diagnosis-input,
-  .diagnosis-input::placeholder { font-size: 14px; font-weight: 500; }
+  .diagnosis-input::placeholder { font-size: 14px; font-weight: 400; }
   .diagnosis-input-wrapper { flex: none; height: 36px; }
   .diagnosis-checklist { flex-direction: column; align-items: flex-start; justify-content: flex-start; }
 
@@ -1815,6 +1820,7 @@ img { max-width: 100%; display: block; }
   .nav-links, .nav-actions { display: none; }
   .nav-hamburger { display: flex; margin-left: auto; }
   .navbar { padding: 0 24px; }
+  .nav-inner { height: 80px; }
   .mobile-menu { padding: 12px 24px 24px; }
 
   .size-section .section-desc { white-space: normal; word-break: keep-all; }
@@ -1846,10 +1852,14 @@ img { max-width: 100%; display: block; }
   .ps-row { grid-template-columns: 1fr; gap: 12px; }
   .ps-arrow { width: 40px; margin: 0 auto; transform: rotate(90deg); padding: 0; }
 
-  .footer-links { grid-template-columns: repeat(2, 1fr); }
+  .footer { padding: 48px 0 32px; }
+  .footer-top { padding-bottom: 24px; margin-bottom: 24px; }
+  .footer-links { display: none; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 
   .final-cta-actions { flex-direction: column; }
+  .btn-cta-ghost { display: none; }
+  .btn-cta-primary { padding: 14px 32px; font-size: 14px; }
 
   .diagnosis-form-row { flex-direction: column; }
   .btn-cta-submit { width: 100%; margin-top: 28px; }
