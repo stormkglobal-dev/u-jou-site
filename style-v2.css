@@ -1415,12 +1415,12 @@ button { font-family: inherit; border: none; background: none; cursor: pointer; 
 .variant-cc:hover em { color: var(--lime-ink); opacity: 0.7; border-left-color: rgba(54,83,20,0.25); }
 
 /* Market shift — past timeline and present touchpoints */
-.market-shift-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px 80px; align-items: start; }
+.market-shift-layout { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: start; }
 .market-shift-copy { text-align: left; }
-.market-shift-copy .h2 { margin-bottom: 28px; }
-.market-shift-copy .lead { line-height: 1.8; }
+.market-shift-copy .h2 { margin-bottom: 16px; }
+.market-shift-copy .lead { max-width: none; line-height: 1.8; word-break: keep-all; }
 .market-shift-layout h3 { font-size: 18px; font-weight: 700; letter-spacing: 0.06em; color: var(--slate-900); }
-.market-past { min-width: 0; align-self: center; color: var(--slate-500); }
+.market-past { min-width: 0; width: 100%; color: var(--slate-500); }
 .market-timeline { list-style: none; display: flex; justify-content: space-between; position: relative; margin-top: 24px; }
 .market-timeline::before { content: ''; position: absolute; top: 5px; left: 12px; right: 12px; height: 1px; background: var(--slate-300); }
 .market-timeline li { position: relative; text-align: center; font-size: 15px; padding-top: 24px; }
